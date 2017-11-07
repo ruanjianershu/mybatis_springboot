@@ -1,0 +1,24 @@
+bootRepackage {
+    enabled = true
+}
+dependencies {
+    compile project(":mybatis-core")
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    {
+ 	 exclude group: 'org.slf4j', module: 'slf4j-api'
+ 	 exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
+    compile('io.springfox:springfox-swagger2:2.6.1')
+    {
+	  exclude group: 'org.slf4j', module: 'slf4j-api'
+	  exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
+    compile('io.springfox:springfox-swagger-ui:2.6.1'){
+	  exclude group: 'org.slf4j', module: 'slf4j-api'
+	  exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
+    testCompile('org.springframework.boot:spring-boot-starter-test'){
+  		exclude group: 'org.slf4j', module: 'slf4j-api'
+ 		exclude group: 'ch.qos.logback', module: 'logback-classic'
+	}
+}
